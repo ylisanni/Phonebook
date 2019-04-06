@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser') 
 
+app.use(express.static('build'))
 app.use(bodyParser.json())
 
 let persons = [
@@ -22,10 +23,6 @@ let persons = [
   }
 ]
 
-
-app.get('/', (request, response) => {
-  response.send('')
-})
 
 app.get('/api/persons', (request, response) => {
   response.json(persons)
